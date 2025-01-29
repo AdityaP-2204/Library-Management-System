@@ -38,15 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'library',
-    'users',
-    'teaching_resources',
-    'api',
     'rest_framework',
     'django.contrib.sites',  # Required for AllAuth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'catalogue',
+    'users',
+    'staff',
+    'transactions',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +136,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# settings.py
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+LOGIN_REDIRECT_URL = '/' 
